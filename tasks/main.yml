@@ -1,7 +1,8 @@
 ---
 # tasks file for newrelic
 - name: Check for newrelic_license_key
-  fail: msg="newrelic_license_key has not been defined"
+  fail:
+    msg: "newrelic_license_key has not been defined"
   when: newrelic_license_key|default(False) == False
 
 - include: debian.yml
@@ -14,6 +15,12 @@
   when: loaded_os_family|default(False) == False
 
 - name: Configure New Relic Sysmond
-  template: src=nrsysmond.cfg.j2 dest=/etc/newrelic/nrsysmond.cfg backup=yes group=newrelic owner=root mode=0640
-  notify: Restart New Relic
+  template:
+    src: nrsysmond.cfg.j2
+    dest: /etc/newrelic/nrsysmond.cfg
+    group: newrelic
+    owner: root
+    mode: 0640
+  notify:
+    - Restart New Relic
   when: loaded_os_family|default(False) != False

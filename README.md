@@ -46,38 +46,30 @@ newrelic_timeout: 30
 
 ### Paramaterized Role
 
-```yaml
----
-- hosts: all
-  roles:
-    - { role: newrelic, newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16 }
-```
+    ---
+    - hosts: all
+      roles:
+        - { role: newrelic, newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16 }
 
 ### Vars
 
-```yaml
----
-- hosts: all
-  vars:
-    newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16
-  roles:
-    - newrelic
-```
+    ---
+    - hosts: all
+      vars:
+        newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16
+      roles:
+        - newrelic
 
 ### Group vars
 
 #### group_vars/production
 
-```yaml
----
-newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16
-```
+    ---
+    newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16
 
 #### site.yml
 
-```yaml
----
-- hosts: all
-  roles:
-    - newrelic
-```
+    ---
+    - hosts: all
+      roles:
+        - newrelic

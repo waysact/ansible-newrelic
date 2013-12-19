@@ -12,7 +12,7 @@ The variables that can be passed to this role and a brief description about them
 
 ```yaml
 # License key
-newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc4
+newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16
 
 # Log level (error, warning, info, verbose, debug, verbosedebug)
 newrelic_loglevel: info
@@ -50,7 +50,7 @@ newrelic_timeout: 30
 ---
 - hosts: all
   roles:
-    - { role: newrelic, newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc4 }
+    - { role: newrelic, newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16 }
 ```
 
 ### Vars
@@ -59,7 +59,7 @@ newrelic_timeout: 30
 ---
 - hosts: all
   vars:
-    newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc4
+    newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16
   roles:
     - newrelic
 ```
@@ -70,7 +70,7 @@ newrelic_timeout: 30
 
 ```yaml
 ---
-newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc4
+newrelic_license_key: ab2fa361cd4d0d373833cad619d7bcc424d27c16
 ```
 
 #### site.yml

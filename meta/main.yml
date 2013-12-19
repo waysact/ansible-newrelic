@@ -2,7 +2,6 @@
 galaxy_info:
   author: Matt Martz
   description: Install and configure the New Relic System Monitor Daemon
-  company: your company (optional)
   license: Apache License, Version 2.0
   min_ansible_version: 1.4 (or higher)
   platforms:

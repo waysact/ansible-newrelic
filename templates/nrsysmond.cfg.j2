@@ -51,7 +51,7 @@ logfile={{ newrelic_logfile }}
 #            fred:secret@proxy.mydomain.com:8181
 # Default: none (use a direct connection)
 #
-{% if newrelic_proxy|defined(False) != False %}
+{% if newrelic_proxy|default(False) != False %}
 proxy={{ newrelic_proxy }}
 {% else %}
 #proxy=

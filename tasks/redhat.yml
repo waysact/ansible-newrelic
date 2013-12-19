@@ -3,13 +3,25 @@
   set_fact:
     loaded_os_family: "{{ ansible_os_family }}"
 
-- name: RedHat | Add the New Relic repository
-  yum:
-    name: https://yum.newrelic.com/pub/newrelic/el5/i386/newrelic-repo-5-3.noarch.rpm
-    state: present
+- name: RedHat | Add the New Relic repository key
+  copy:
+    src: RPM-GPG-KEY-NewRelic
+    dest: /etc/pki/rpm-gpg
+    owner: root
+    group: root
+    mode: 0644
+
+- name: RedHat | Add the Rew Relic repository file
+  copy:
+    src: newrelic.repo
+    dest: /etc/yum.repos.d/newrelic.repo
+    owner: root
+    group: root
+    mode: 0644
 
 - name: RedHat | Install New Relic Sysmond
   yum:
     name: newrelic-sysmond
     state: latest
-  notify: Restart New Relic
+  notify:
+    - Restart New Relic

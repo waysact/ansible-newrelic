@@ -1,5 +1,4 @@
 ---
-# tasks file for newrelic
 - name: Check for newrelic_license_key
   fail:
     msg: "newrelic_license_key has not been defined"

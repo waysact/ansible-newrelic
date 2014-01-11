@@ -1,4 +1,3 @@
 ---
-# handlers file for newrelic
 - name: Restart New Relic
   service: name=newrelic-sysmond state=restarted

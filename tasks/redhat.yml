@@ -1,7 +1,7 @@
 ---
-- name: RedHat | Set loaded_os_family
+- name: RedHat | Set newrelic_loaded_os_family
   set_fact:
-    loaded_os_family: "{{ ansible_os_family }}"
+    newrelic_loaded_os_family: "{{ ansible_os_family }}"
 
 - name: RedHat | Add the New Relic repository key
   copy:

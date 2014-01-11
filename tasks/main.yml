@@ -11,7 +11,7 @@
   when: ansible_os_family == 'RedHat'
 
 - include: default.yml
-  when: loaded_os_family|default(False) == False
+  when: newrelic_loaded_os_family|default(False) == False
 
 - name: Configure New Relic Sysmond
   template:
@@ -22,7 +22,7 @@
     mode: 0640
   notify:
     - Restart New Relic
-  when: loaded_os_family|default(False) != False
+  when: newrelic_loaded_os_family|default(False) != False
 
 - name: Ensure New Relic Sysmond is started and enabled
   service:

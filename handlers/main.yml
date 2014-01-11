@@ -1,3 +1,5 @@
 ---
 - name: Restart New Relic
-  service: name=newrelic-sysmond state=restarted
+  service:
+    name: newrelic-sysmond
+    state: restarted

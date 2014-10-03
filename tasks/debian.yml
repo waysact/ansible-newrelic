@@ -3,11 +3,24 @@
   set_fact:
     newrelic_loaded_os_family: "{{ ansible_os_family }}"
 
-- name: Debian | Add New Relic repo key
+- name: Debian | Add New Relic repo key through a proxy
   apt_key:
     url: https://download.newrelic.com/548C16BF.gpg
     id: 548C16BF
     state: present
+  when: "http_proxy is defined and proxy_state is defined and 
+    proxy_state == 'present'"
+  environment:
+    http_proxy: "{{ http_proxy }}"
+    https_proxy: "{{ https_proxy }}"
+
+- name: Debian | Add New Relic repo key without a proxy
+  apt_key:
+    url: https://download.newrelic.com/548C16BF.gpg
+    id: 548C16BF
+    state: present
+  when: "http_proxy is not defined or (http_proxy is defined and 
+    proxy_state is defined and proxy_state == 'absent')"
 
 - name: Debian | Add New Relic repository
   copy:
